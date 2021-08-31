@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import pymysql
 from pymysql import connections
 import os
 import boto3
@@ -6,15 +7,15 @@ from config import *
 
 app = Flask(__name__)
 
-bucket = custombucket
-region = customregion
+bucket = "demo2021bucket"
+region = "ap-south-1"
 
-db_conn = connections.Connection(
-    host=customhost,
-    port=3306,
-    user=customuser,
-    password=custompass,
-    db=customdb
+db_conn =pymysql.connect(
+    host="demodb.ctr1nhto2rau.ap-south-1.rds.amazonaws.com",
+    port="3306",
+    user="admin",
+    password="12345678",
+    db="demodb"
 
 )
 output = {}
