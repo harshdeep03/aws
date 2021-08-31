@@ -3,14 +3,13 @@ import pymysql
 from pymysql import connections
 import os
 import boto3
-from config import *
 
 app = Flask(__name__)
 
 bucket = "demo2021bucket"
 region = "ap-south-1"
 
-db_conn =pymysql.connect(
+db_conn =connections.Connection(
     host="demodb.ctr1nhto2rau.ap-south-1.rds.amazonaws.com",
     port="3306",
     user="admin",
